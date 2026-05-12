@@ -13,9 +13,8 @@ import pool from './src/config/db.js';
 })();
 
 dotenv.config();
-const app = express();
 
-app.use(express.json());
+const app = require('./app');
 
 const port = process.env.PORT || 5000;
 app.listen(port, '0.0.0.0', () => {
