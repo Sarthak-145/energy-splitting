@@ -6,7 +6,7 @@ import Register from './pages/Register';
 
 import Dashboard from './pages/Dashboard';
 
-import ProtectedRoute from './routes/ProtectedRoute';
+import ProtectedRoute from './routes/ProtectedRoutes';
 
 const App = () => {
   return (
