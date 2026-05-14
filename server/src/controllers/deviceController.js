@@ -1,4 +1,4 @@
-import { query as _query } from '../config/db.js';
+import pool from '../config/db.js';
 
 // USER toggles relay
 const toggleRelay = async (req, res) => {
@@ -13,7 +13,7 @@ const toggleRelay = async (req, res) => {
       RETURNING *;
     `;
 
-    const result = await _query(query, [relay_state, id]);
+    const result = await pool.query(query, [relay_state, id]);
 
     if (result.rows.length === 0) {
       return res.status(404).json({
@@ -47,7 +47,7 @@ const getRelayCommand = async (req, res) => {
       WHERE id = $1;
     `;
 
-    const result = await _query(query, [id]);
+    const result = await pool.query(query, [id]);
 
     if (result.rows.length === 0) {
       return res.status(404).json({
@@ -70,7 +70,4 @@ const getRelayCommand = async (req, res) => {
   }
 };
 
-export default {
-  toggleRelay,
-  getRelayCommand,
-};
+export { toggleRelay, getRelayCommand };

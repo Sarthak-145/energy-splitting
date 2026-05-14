@@ -8,5 +8,6 @@ app.use(json());
 
 app.use('/api/data', dataRoutes);
 app.use('/api/auth', authRoutes);
+app.use('/api/device', deviceRoutes);
 
 export default app;

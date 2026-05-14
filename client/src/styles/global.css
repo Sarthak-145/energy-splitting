@@ -1,0 +1,26 @@
+:root {
+  --bg-primary: #050816;
+  --bg-secondary: #0b1220;
+
+  --cyan-primary: #00bcd4;
+  --cyan-dark: #008ba3;
+
+  --text-primary: #e6f1ff;
+  --text-secondary: #9fb3c8;
+
+  --border-color: #123040;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--bg-primary);
+
+  color: var(--text-primary);
+
+  font-family: sans-serif;
+}
