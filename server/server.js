@@ -1,20 +1,18 @@
-import express from 'express';
 import dotenv from 'dotenv';
 import pool from './src/config/db.js';
+import app from './app.js';
 
 (async () => {
   try {
     const res = await pool.query('SELECT NOW()');
-    console.log('DB connected ✅', res.rows[0]);
+    console.log('DB connected', res.rows[0]);
   } catch (err) {
-    console.error('DB connection failed ❌', err.message);
+    console.error('DB connection failed', err.message);
     process.exit(1);
   }
 })();
 
 dotenv.config();
-
-const app = require('./app');
 
 const port = process.env.PORT || 5000;
 app.listen(port, '0.0.0.0', () => {

@@ -6,7 +6,7 @@ import {
   createReading,
   getAllReadings,
   getReadingsByDevice,
-} from '../controllers/dataController';
+} from '../controllers/dataController.js';
 
 // POST sensor data
 router.post('/', createReading);

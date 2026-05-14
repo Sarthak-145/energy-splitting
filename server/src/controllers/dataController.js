@@ -1,4 +1,4 @@
-import { query as _query } from '../config/db';
+import pool from '../config/db.js';
 
 // POST /api/data
 const createReading = async (req, res) => {
@@ -51,7 +51,7 @@ const createReading = async (req, res) => {
       esp_timestamp,
     ];
 
-    const result = await _query(query, values);
+    const result = await pool.query(query, values);
 
     res.status(201).json({
       success: true,
@@ -76,7 +76,7 @@ const getAllReadings = async (req, res) => {
       LIMIT 100;
     `;
 
-    const result = await _query(query);
+    const result = await pool.query(query);
 
     res.status(200).json({
       success: true,
@@ -104,7 +104,7 @@ const getReadingsByDevice = async (req, res) => {
       ORDER BY created_at DESC;
     `;
 
-    const result = await _query(query, [deviceId]);
+    const result = await pool(query, [deviceId]);
 
     res.status(200).json({
       success: true,
@@ -121,8 +121,4 @@ const getReadingsByDevice = async (req, res) => {
   }
 };
 
-export default {
-  createReading,
-  getAllReadings,
-  getReadingsByDevice,
-};
+export { createReading, getAllReadings, getReadingsByDevice };

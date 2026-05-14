@@ -1,10 +1,12 @@
-const express = require('express');
-const dataRoutes = require('./routes/dataRoutes');
+import express, { json } from 'express';
+import dataRoutes from './src/routes/dataRoutes.js';
+import authRoutes from './src/routes/authRoutes.js';
 
 const app = express();
 
-app.use(express.json());
+app.use(json());
 
 app.use('/api/data', dataRoutes);
+app.use('/api/auth', authRoutes);
 
-module.exports = app;
+export default app;
